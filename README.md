@@ -7,25 +7,7 @@ Once the pipeline is completed, the pod will be torn down.
 
 We will be running this demo on AWS instances that have been provision with Docker, kubelet, kubeadm, kubectl and Calico (for container networking);  which you should now have access to.
 
-If you wish to try this on your own machine after the meet-up you can setup a local development environment easily with Minikube.
-
-The preceding Minikube installation instructions are for OSX. The setup for other operating systems is just as easy, but will not be covered here. 
-
-# Install VirtualBox
-Download and run through the GUI installer found here:
-`https://www.virtualbox.org/wiki/Downloads`
-
-# Install Docker
-Follow the below Docker documentation to install Docker for OSX:
-`https://docs.docker.com/docker-for-mac/install/`
-
-# Install kubectl
-`curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/v1.10.0/bin/darwin/amd64/kubectl && chmod +x kubectl && sudo mv kubectl /usr/local/bin/`
-
-Check that it’s installed properly: `kubectl version`
-
-# Install minikube
-`curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.26.1/minikube-darwin-amd64 && chmod +x minikube && sudo mv minikube /usr/local/bin/`
+If you wish to try this on your own machine after the meet-up you can setup a local development environment easily with Minikube. Instructions to do so can be found at the bottom of this page.
 
 # Getting Started
 Let’s create a directory for this playground and cd into it:
@@ -189,3 +171,23 @@ If you have any queries feel free to drop me an email @ `anthony.forster@ecs-dig
 I hope you’ve had a good time and that this has been a good glimpse into the possibilities of running Jenkins on Kubernetes.
 
 Please help yourself to beer and pizza! :)
+
+# Setting up a Local Development Environment
+
+The preceding Minikube installation instructions are for OSX. The setup for other operating systems are just as easy, but will not be covered here. 
+
+# Install VirtualBox
+Download and run through the GUI installer found here:
+`https://www.virtualbox.org/wiki/Downloads`
+
+# Install Docker
+Follow the below Docker documentation to install Docker for OSX:
+`https://docs.docker.com/docker-for-mac/install/`
+
+# Install kubectl
+`curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/v1.10.0/bin/darwin/amd64/kubectl && chmod +x kubectl && sudo mv kubectl /usr/local/bin/`
+
+Check that it’s installed properly: `kubectl version`
+
+# Install minikube
+`curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.26.1/minikube-darwin-amd64 && chmod +x minikube && sudo mv minikube /usr/local/bin/`
