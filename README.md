@@ -9,10 +9,12 @@ We will be running this demo on AWS instances that have been provision with Dock
 
 If you wish to try this on your own machine after the meet-up you can setup a local development environment easily with Minikube. Instructions to do so can be found at the bottom of this page.
 
-# Getting Started
+# 1. Getting Started
 Let’s create a directory for this playground and cd into it:
 `mkdir playground && cd playground`
 
+
+# 2. Create a Jenkins Deployment
 Let’s create our Jenkins master deployment manifest:
 `vi jenkins-deployment.yaml`
 
@@ -58,7 +60,7 @@ Find the name of the pod just created:
 Check the status of the pod:
 `kubectl describe pod {POD-NAME}`
 
-# Create a Jenkins Service
+# 3. Create a Jenkins Service
 Let’s create our Jenkins service deployment manifest:
 `vi jenkins-service.yaml`
 
@@ -86,18 +88,18 @@ spec:
 Create the service:
 `kubectl create -f jenkins-service.yaml`
 
-# Accessing the Kubernetes Dashboard
+# 4. Accessing the Kubernetes Dashboard
 The dashboard for your cloud instance can be found at:
 `http://{animal}.devopsplayground.com:8001/api/v1/namespaces/kube-system/services/http:kubernetes-dashboard:/proxy/#!/overview?namespace=default`
 
-# Accessing the Jenkins UI
+# 5. Accessing the Jenkins UI
 Find the port Jenkins is running on, mapped to 8080:
 `kubectl get services`
 
 Access the UI via:
 `http://{animal}.devopsplayground.com:{port}`
 
-# Configuring Jenkins
+# 6. Configuring Jenkins
 Within the Jenkins UI, navigate to “*Manage Jenkins* -> *Configure System*”
 
 Set: `# of executors` to `0`
@@ -131,7 +133,7 @@ Set up the container template by clicking “*Add Container*” and populating i
 
 Jenkins should now be set up to provision pods!
 
-# A Basic Jenkins Pipeline
+# 7. A Basic Jenkins Pipeline
 Let’s now create a basic pipeline to test the functionality we just configured.
 
 From the Jenkins homepage, create a pipeline by navigating to “*New Item* -> *Pipeline*” and name is accordingly.
@@ -151,7 +153,7 @@ podTemplate(label: label) {
 
 Save your pipeline.
 
-# Running the Pipeline
+# 8. Running the Pipeline
 On the left hand side of the page, you should see a “*Build Now*” link; select this to kick off a build to test your pipeline.
 
 Jenkins will now provision a pod using the *Jenkins/jnlp-slave* image we set earlier. This pod will then execute the pipeline; in our case, echoing hello world.
@@ -164,15 +166,17 @@ Alternatively you can see this in the Kubernetes Dashboard.
 
 If all goes according to plan, you should see that the pipeline has completed successfully!
 
+# Beer & Pizza!
+
 That concludes this DevOps Playground Meet-Up.
 
 If you have any queries feel free to drop me an email @ `anthony.forster@ecs-digital.co.uk`
 
 I hope you’ve had a good time and that this has been a good glimpse into the possibilities of running Jenkins on Kubernetes.
 
-Please help yourself to beer and pizza! :)
+Please help yourselves to beer and pizza! :)
 
-# Setting up a Local Development Environment
+# Additional - Setting up a Local Development Environment
 
 The preceding Minikube installation instructions are for OSX. The setup for other operating systems are just as easy, but will not be covered here. 
 
